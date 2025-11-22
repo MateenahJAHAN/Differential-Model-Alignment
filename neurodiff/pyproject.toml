@@ -1,0 +1,100 @@
+[project]
+name = "neurodiff"
+version = "0.1.0"
+description = "A Comprehensive Architectural Framework for Differential Mechanistic Interpretability"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "NeuroDiff Team", email = "contact@neurodiff.ai"},
+]
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.35.0",
+    "einops>=0.7.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+    "plotly>=5.15.0",
+    "streamlit>=1.28.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.0.0",
+    "scikit-learn>=1.3.0",
+    "scipy>=1.11.0",
+    "tqdm>=4.66.0",
+    "wandb>=0.16.0",
+    "pytest>=7.4.0",
+    "black>=23.10.0",
+    "ruff>=0.1.0",
+    "ipykernel>=6.25.0",
+    "jupyter>=1.0.0",
+    "accelerate>=0.24.0",
+    "bitsandbytes>=0.41.0",
+    "peft>=0.6.0",
+    "safetensors>=0.4.0",
+    "datasets>=2.14.0",
+    "tokenizers>=0.14.0",
+    "sentencepiece>=0.1.99",
+    "protobuf>=4.24.0",
+    "rich>=13.6.0",
+    "typer>=0.9.0",
+    "pyyaml>=6.0.1",
+    "omegaconf>=2.3.0",
+    "hydra-core>=1.3.2",
+    "seaborn>=0.13.0",
+    "networkx>=3.2.0",
+    "jaxtyping>=0.2.23",
+    "beartype>=0.16.0",
+    "fancy_einsum>=0.0.3",
+    "transformer-lens>=1.9.0",
+    "circuitsvis>=1.43.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest-cov>=4.1.0",
+    "mypy>=1.6.0",
+    "pre-commit>=3.5.0",
+    "sphinx>=7.2.0",
+    "sphinx-rtd-theme>=1.3.0",
+]
+serving = [
+    "vllm>=0.2.0",
+    "text-generation-inference>=1.1.0",
+    "ray>=2.8.0",
+]
+research = [
+    "captum>=0.6.0",
+    "shap>=0.43.0",
+    "lime>=0.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/neurodiff/neurodiff"
+Documentation = "https://neurodiff.readthedocs.io"
+Repository = "https://github.com/neurodiff/neurodiff.git"
+Issues = "https://github.com/neurodiff/neurodiff/issues"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+select = ["E", "F", "I", "N", "W", "B", "C90", "D"]
+ignore = ["E501", "D100", "D101", "D102", "D103", "D104", "D105", "D107"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
